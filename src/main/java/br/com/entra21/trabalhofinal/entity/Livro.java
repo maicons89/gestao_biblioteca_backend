@@ -33,13 +33,13 @@ public class Livro {
 	@Column(nullable = true, length = 1000, unique = false)
 	private String descricaoFisica;
 
-	@Column(nullable = false, unique = false)
+	@Column(nullable = true, unique = false)
 	private Long qtdDisponivelEmprestimo;
 
 	@Column(nullable = false, length = 255, unique = false)
 	private String descricao;
 
-	@Column(nullable = false, length = 255, unique = false)
+	@Column(nullable = true, length = 255, unique = false)
 	private String status;
 
 	@Column(name = "id_assunto")

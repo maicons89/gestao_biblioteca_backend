@@ -40,7 +40,7 @@ public class IdiomaService {
 			return new IdiomaDTO(idioma.get());
 		}
 
-		throw new NotFoundException("Idioma não encontrada para o id " + id);
+		throw new NotFoundException("Idioma não encontrado para o id " + id);
 	}
 
 	public void excluir(Long id) throws NotFoundException, EntidadeEmUsoException {
@@ -67,6 +67,6 @@ public class IdiomaService {
 			Idioma idiomaAlterado = idiomaRepository.save(idiomaParaAtualizar);
 			return new IdiomaDTO(idiomaAlterado);
 		}
-		throw new NotFoundException("Assunto não encontrada para o id " + id);
+		throw new NotFoundException("Idioma não encontrado para o id " + id);
 	}
 }

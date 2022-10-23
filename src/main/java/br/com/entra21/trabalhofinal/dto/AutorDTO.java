@@ -21,12 +21,12 @@ public class AutorDTO {
 	@NotBlank(message = "Campo nome não pode estar vazio.")
 	private String nome;
 
-	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+	@JsonFormat(pattern = "yyyy/MM/dd", shape = JsonFormat.Shape.STRING)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate dataNascimento;
 
-	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+	@JsonFormat(pattern = "yyyy/MM/dd", shape = JsonFormat.Shape.STRING)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate dataFalecimento;

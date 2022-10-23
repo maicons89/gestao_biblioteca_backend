@@ -52,6 +52,7 @@ public class LivroService {
 
 		IdiomaDTO idiomaDTO = idiomaService.buscarPorID(livroDTO.getIdIdioma());
 		livroParaSalvar.setIdioma(idiomaDTO.toEntity());
+		livroParaSalvar.setQtdDisponivelEmprestimo(0L);
 
 		Livro livroCadastro = livroRepository.save(livroParaSalvar);
 		return new LivroDTO(livroCadastro);
@@ -70,7 +71,7 @@ public class LivroService {
 		if (livro.isPresent()) {
 			livroRepository.deleteById(id);
 		} else {
-			throw new NotFoundException("Livro não encontrada para o id " + id);
+			throw new NotFoundException("Livro não encontrado para o id " + id);
 		}
 	}
 

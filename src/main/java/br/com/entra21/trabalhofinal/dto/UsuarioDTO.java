@@ -26,10 +26,8 @@ public class UsuarioDTO {
 	@NotBlank(message = "Campo email não pode estar vazio.")
 	private String email;
 
-	@NotBlank(message = "Campo senha não pode estar vazio.")
 	private String senha;
 
-	@NotNull(message = "Campo tipo não pode estar vazio.")
 	private boolean administrador;
 
 	@NotBlank(message = "Campo logradouro não pode estar vazio.")

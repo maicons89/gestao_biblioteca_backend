@@ -43,7 +43,7 @@ public class AssuntoDTO {
 	}
 
 	public Assunto toEntity() {
-		return new Assunto(id, nome, cdd);
+		return new Assunto(id, cdd, nome);
 	}
 
 }

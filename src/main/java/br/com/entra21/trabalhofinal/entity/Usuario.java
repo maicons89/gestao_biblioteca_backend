@@ -27,10 +27,10 @@ public class Usuario {
 	@Column(nullable = false, length = 255, unique = false)
 	private String email;
 
-	@Column(nullable = false, length = 255, unique = false)
+	@Column(nullable = true, length = 255, unique = false)
 	private String senha;
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private boolean administrador;
 
 	@Column(nullable = false, length = 255, unique = false)

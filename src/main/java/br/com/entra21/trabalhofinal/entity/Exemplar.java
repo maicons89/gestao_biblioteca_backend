@@ -2,6 +2,7 @@ package br.com.entra21.trabalhofinal.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,17 +24,21 @@ public class Exemplar {
 	@Column(nullable = true, length = 255, unique = false)
 	private String descricao;
 
-	@ManyToOne
+	@Column(name = "id_livro")
+	private Long idLivro;
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_livro", insertable = false, updatable = false)
 	private Livro livro;
 
 	public Exemplar() {
 	}
 
-	public Exemplar(Long id, Long codigoExemplar, String descricao, Livro livro) {
+	public Exemplar(Long id, Long codigoExemplar, String descricao, Long idLivro, Livro livro) {
 		this.id = id;
 		this.codigoExemplar = codigoExemplar;
 		this.descricao = descricao;
+		this.idLivro = idLivro;
 		this.livro = livro;
 	}
 
@@ -67,6 +72,14 @@ public class Exemplar {
 
 	public void setLivro(Livro livro) {
 		this.livro = livro;
+	}
+
+	public Long getIdLivro() {
+		return idLivro;
+	}
+
+	public void setIdLivro(Long idLivro) {
+		this.idLivro = idLivro;
 	}
 
 }

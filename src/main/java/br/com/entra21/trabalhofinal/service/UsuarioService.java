@@ -35,7 +35,7 @@ public class UsuarioService {
 			return new UsuarioDTO(usuario.get());
 		}
 
-		throw new NotFoundException("Usuario não encontrada para o id " + id);
+		throw new NotFoundException("Usuario não encontrado para o id " + id);
 	}
 
 	public void excluir(Long id) throws NotFoundException {
@@ -43,7 +43,7 @@ public class UsuarioService {
 		if (usuario.isPresent()) {
 			usuarioRepository.deleteById(id);
 		} else {
-			throw new NotFoundException("Usuário não encontrada para o id " + id);
+			throw new NotFoundException("Usuário não encontrado para o id " + id);
 		}
 	}
 

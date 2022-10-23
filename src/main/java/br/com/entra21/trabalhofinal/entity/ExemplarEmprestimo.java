@@ -1,9 +1,10 @@
 package br.com.entra21.trabalhofinal.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,33 +21,39 @@ public class ExemplarEmprestimo {
 	private Long id;
 
 	@Column(nullable = false, unique = false)
-	private Date dataEmprestimo;
+	private LocalDate dataEmprestimo;
 
 	@Column(nullable = true, unique = false)
-	private Date dataDevolucao;
+	private LocalDate dataDevolucao;
 
 	@Column(nullable = false, unique = false)
-	private Date dataDevolucaoPrevista;
+	private LocalDate dataDevolucaoPrevista;
 
-	@ManyToOne
+	@Column(name = "id_exemplar")
+	private Long idExemplar;
+
+	@Column(name = "id_usuario")
+	private Long idUsuario;
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_exemplar", insertable = false, updatable = false)
 	private Exemplar exemplar;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_usuario", insertable = false, updatable = false)
 	private Usuario usuario;
 
 	public ExemplarEmprestimo() {
 	}
 
-	public ExemplarEmprestimo(Long id, Date dataEmprestimo, Date dataDevolucao, Date dataDevolucaoPrevista,
-			Exemplar exemplar, Usuario usuario) {
+	public ExemplarEmprestimo(Long id, LocalDate dataEmprestimo, LocalDate dataDevolucao,
+			LocalDate dataDevolucaoPrevista, Long idExemplar, Long idUsuario) {
 		this.id = id;
 		this.dataEmprestimo = dataEmprestimo;
 		this.dataDevolucao = dataDevolucao;
 		this.dataDevolucaoPrevista = dataDevolucaoPrevista;
-		this.exemplar = exemplar;
-		this.usuario = usuario;
+		this.idExemplar = idExemplar;
+		this.idUsuario = idUsuario;
 	}
 
 	public Long getId() {
@@ -57,28 +64,44 @@ public class ExemplarEmprestimo {
 		this.id = id;
 	}
 
-	public Date getDataEmprestimo() {
+	public LocalDate getDataEmprestimo() {
 		return dataEmprestimo;
 	}
 
-	public void setDataEmprestimo(Date dataEmprestimo) {
+	public void setDataEmprestimo(LocalDate dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
 
-	public Date getDataDevolucao() {
+	public LocalDate getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Date dataDevolucao) {
+	public void setDataDevolucao(LocalDate dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
-	public Date getDataDevolucaoPrevista() {
+	public LocalDate getDataDevolucaoPrevista() {
 		return dataDevolucaoPrevista;
 	}
 
-	public void setDataDevolucaoPrevista(Date dataDevolucaoPrevista) {
+	public void setDataDevolucaoPrevista(LocalDate dataDevolucaoPrevista) {
 		this.dataDevolucaoPrevista = dataDevolucaoPrevista;
+	}
+
+	public Long getIdExemplar() {
+		return idExemplar;
+	}
+
+	public void setIdExemplar(Long idExemplar) {
+		this.idExemplar = idExemplar;
+	}
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public Exemplar getExemplar() {

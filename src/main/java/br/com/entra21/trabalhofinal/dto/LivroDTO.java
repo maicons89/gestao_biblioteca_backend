@@ -24,18 +24,16 @@ public class LivroDTO {
 
 	private String formasVariantesDoTitulo;
 
-	@NotNull(message = "Campo Número Edição Principal não pode estar vazio.")
+	@NotNull(message = "Campo Número Edição não pode estar vazio.")
 	private Long numeroEdicao;
 
 	private String descricaoFisica;
 
-	@NotNull(message = "Campo Quantidade Dsponível Empréstimo não pode estar vazio.")
 	private Long qtdDisponivelEmprestimo;
 
 	@NotBlank(message = "Campo Descrição não pode estar vazio.")
 	private String descricao;
 
-	@NotBlank(message = "Campo Status não pode estar vazio.")
 	private String status;
 
 	@NotNull(message = "Campo idAssunto não pode estar vazio.")
@@ -147,6 +145,10 @@ public class LivroDTO {
 
 	public Idioma getIdioma() {
 		return idioma;
+	}
+
+	public void setQtdDisponivelEmprestimo(Long qtdDisponivelEmprestimo) {
+		this.qtdDisponivelEmprestimo = qtdDisponivelEmprestimo;
 	}
 
 	public static List<LivroDTO> toList(List<Livro> livros) {

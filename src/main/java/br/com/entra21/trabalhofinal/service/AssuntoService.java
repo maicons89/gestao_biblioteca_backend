@@ -40,7 +40,7 @@ public class AssuntoService {
 			return new AssuntoDTO(assunto.get());
 		}
 
-		throw new NotFoundException("Assunto não encontrada para o id " + id);
+		throw new NotFoundException("Assunto não encontrado para o id " + id);
 
 	}
 
